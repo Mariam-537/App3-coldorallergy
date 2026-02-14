@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Mariam Hamouie
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -34,7 +34,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
- <script> // This is where the function is set up that counts allergy vs. cold based on the button that is pressed on each page//
+ // This is where the function is set up that counts allergy vs. cold based on the button that is pressed on each page//
 <script>
         var allergy_count = 0;
         var cold_count = 0;
@@ -49,9 +49,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         function coldAdd(){
             cold_count = cold_count + 1;
         }
-
-  </script> // This is where the formatting is written below: that makes the page look the desired way//
-
+ // This is where the formatting is written below: that makes the page look the desired way//
 
 
 <style>	
@@ -95,7 +93,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
- </script> // This is where I am going to insert my first question and the two buttons//	
+	// This is where I am going to insert my first question and the two buttons, the buttons should code to count for allergy for yes and cold for no, then it will take the user to the second page //	
     	<div id="content" class="w3-container">
         <p>Are your eyes watery or itchy?</p>    
     <a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
@@ -108,7 +106,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
-	 </script> // This is where I am going to insert my second question and the two buttons on the second page. I changed the code to switch from allergy to cold for yes and vice versa//	
+ // This is where I am going to insert my second question and the two buttons on the second page. I changed the code to switch from allergy to cold for yes and vice versa//	
 	<div id="content" class="w3-container">
 		<p>Content of page 2 goes here.</p>
 		<div id="content" class="w3-container">
@@ -116,9 +114,73 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
          	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
 > Go to Page Three </a>
-
+//This will take the user to the third page where the next question will be//
 	</div>
-</div>	
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+ // This is where I am going to insert my third question and the two buttons on the third page. I added in my question and kept everything else the same as above//	
+	<div id="content" class="w3-container">
+		<p>Content of page 3 goes here.</p>
+		<div id="content" class="w3-container">
+        <p>Do you have a sore throat?</p>    
+    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+> Go to Page Four </a>
+	//This will transport the user to page 4, where the last given question will be//
+	</div>	
+	<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+ // This is where I am going to insert my fourth question and the two buttons on the fourth page. I added in my question and then switched the output for yes and no with yes now being allergy//	
+	<div id="content" class="w3-container">
+		<p>Content of page 4 goes here.</p>
+		<div id="content" class="w3-container">
+        <p>Are your symptoms seasonal or chronic?</p>    
+    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+	// This code should bring the user to the next, page where I will be asking a new question /
+> Go to Page Five </a>
+	</div>	
+	<div class="page" id="five">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+ // This is where I am going to insert my fifth question and the two buttons on the fifth page. I'm adding in a new question based on a Google search of symptoms of cold and allergies//	
+	<div id="content" class="w3-container">
+		<p>Content of page 5 goes here.</p>
+		<div id="content" class="w3-container">
+        <p>Is your mucus clear and watery?</p>    
+    <a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+	// This code should bring the user to the next page where I will be asking another new question /
+> Go to Page Six </a>
+	</div>	
+	<div class="page" id="six">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+ // This is where I am going to insert my last question and the two buttons on the sixth page. I'm adding in a new question based on a Google search of symptoms of cold and allergies//	
+	<div id="content" class="w3-container">
+		<p>Content of page 6 goes here.</p>
+		<div id="content" class="w3-container">
+        <p>Are your symptoms persistent throughout the day, rather than being worse at certain times?</p>    
+    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+	// This code should bring the user to the last page where it should bring the user to the results /
+> Go to Page Seven </a>
+	// Now I will have to code the results to show the user the outcome based on adding all of the clicked buttons together, I started by adding the given code in the document //
+	 <p id="results"></p>.
+	//Here I tried to use the formatting of the previous pages to make the results page look coherent with the rest of them//
+	<p>Content of page 6 goes here.</p>
+		<div id="content" class="w3-container">
+	<div class="w3-container w3-flat-carrot">
+	//This code below I also brought in directly from the procedures document in the google drive, it should be able to calculate the results//
+	<h1>Results</h1>
+	var resultText = document.getElementById("results");
+	resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent; 
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
