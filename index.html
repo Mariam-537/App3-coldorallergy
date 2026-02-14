@@ -36,158 +36,140 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
    </head> 
 
 
-<script>
-        var allergy_count = 0;
-        var cold_count = 0;
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>Cold or Allergies?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
-
-        }
-
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
-
-  </script>
-
-
-
-<style>	
-.body {
-     margin: 0em;
-}
+<style>
+body { margin:0; }
 
 .page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:-100vw;
+    overflow-y:auto;
+    background:white;
 }
 
-  .page:target {
-    left: 0vw;
-    z-index: 1;
+.page:target {
+    left:0;
 }
 </style>
 
+<script>
+var allergy_count = 0;
+var cold_count = 0;
+
+function allergyAdd(nextPage){
+    allergy_count++;
+    location.href = nextPage;
+}
+
+function coldAdd(nextPage){
+    cold_count++;
+    location.href = nextPage;
+}
+
+function showResults(){
+    var total = allergy_count + cold_count;
+    var allergyPercent = Math.round((allergy_count/total)*100);
+    var coldPercent = Math.round((cold_count/total)*100);
+
+    document.getElementById("results").innerHTML =
+        "Allergy likelihood: " + allergyPercent + "%<br>" +
+        "Cold likelihood: " + coldPercent + "%";
+}
+</script>
+</head>
+
 <body>
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
-</div>
-	
-<div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
-	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
-	
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-</div> <!-- adding this because it seems to be missing????? -->
-	
-<div class="page" id="one">
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
-	</div>
-	// This is where I am going to insert my first question and the two buttons, the buttons should code to count for allergy for yes and cold for no, then it will take the user to the second page //	
-    	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    
-    <a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
-> Go to Page Two </a>
-		</div>
+
+<!-- Home Page -->
+<div class="w3-container w3-flat-carrot">
+<h1>Cold or Allergies?</h1>
 </div>
 
-<div class="page" id="two">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 2</h1>
-	</div>
- // This is where I am going to insert my second question and the two buttons on the second page. I changed the code to switch from allergy to cold for yes and vice versa//	
-	<div id="content" class="w3-container">
-		<p>Content of page 2 goes here.</p>
-		<div id="content" class="w3-container">
-        <p>Do you have a fever?</p>    
-    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-> Go to Page Three </a>
-//This will take the user to the third page where the next question will be//
-	</div>
-<div class="page" id="three">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 3</h1>
-	</div>
- // This is where I am going to insert my third question and the two buttons on the third page. I added in my question and kept everything else the same as above//	
-	<div id="content" class="w3-container">
-		<p>Content of page 3 goes here.</p>
-		<div id="content" class="w3-container">
-        <p>Do you have a sore throat?</p>    
-    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-> Go to Page Four </a>
-	//This will transport the user to page 4, where the last given question will be//
-	</div>	
-	<div class="page" id="four">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 4</h1>
-	</div>
- // This is where I am going to insert my fourth question and the two buttons on the fourth page. I added in my question and then switched the output for yes and no with yes now being allergy//	
-	<div id="content" class="w3-container">
-		<p>Content of page 4 goes here.</p>
-		<div id="content" class="w3-container">
-        <p>Are your symptoms seasonal or chronic?</p>    
-    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-	// This code should bring the user to the next, page where I will be asking a new question /
-> Go to Page Five </a>
-	</div>	
-	<div class="page" id="five">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 5</h1>
-	</div>
- // This is where I am going to insert my fifth question and the two buttons on the fifth page. I'm adding in a new question based on a Google search of symptoms of cold and allergies//	
-	<div id="content" class="w3-container">
-		<p>Content of page 5 goes here.</p>
-		<div id="content" class="w3-container">
-        <p>Is your mucus clear and watery?</p>    
-    <a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
-	// This code should bring the user to the next page where I will be asking another new question /
-> Go to Page Six </a>
-	</div>	
-	<div class="page" id="six">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 5</h1>
-	</div>
- // This is where I am going to insert my last question and the two buttons on the sixth page. I'm adding in a new question based on a Google search of symptoms of cold and allergies//	
-	<div id="content" class="w3-container">
-		<p>Content of page 6 goes here.</p>
-		<div id="content" class="w3-container">
-        <p>Are your symptoms persistent throughout the day, rather than being worse at certain times?</p>    
-    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-	// This code should bring the user to the last page where it should bring the user to the results /
-> Go to Page Seven </a>
-	// Now I will have to code the results to show the user the outcome based on adding all of the clicked buttons together, I started by adding the given code in the document //
-	 <p id="results"></p>.
-	//Here I tried to use the formatting of the previous pages to make the results page look coherent with the rest of them//
-	<p>Content of page 6 goes here.</p>
-		<div id="content" class="w3-container">
-	<div class="w3-container w3-flat-carrot">
-	//This code below I also brought in directly from the procedures document in the google drive, it should be able to calculate the results//
-	<h1>Results</h1>
-	var resultText = document.getElementById("results");
-	resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "<br> Probability it is a cold =" + coldPercent; 
+<div class="w3-container">
+<p>Answer a few short questions to find out!</p>
+<a href="#one" class="w3-btn w3-black w3-round">Get Started</a>
+</div>
 
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
+<!-- Question 1 -->
+<div id="one" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 1</h1></div>
+<div class="w3-container">
+<p>Are your eyes watery or itchy?</p>
+<button onclick="allergyAdd('#two')" class="w3-btn w3-black">Yes</button>
+<button onclick="coldAdd('#two')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Question 2 -->
+<div id="two" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 2</h1></div>
+<div class="w3-container">
+<p>Do you have a fever?</p>
+<button onclick="coldAdd('#three')" class="w3-btn w3-black">Yes</button>
+<button onclick="allergyAdd('#three')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Question 3 -->
+<div id="three" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 3</h1></div>
+<div class="w3-container">
+<p>Do you have a sore throat?</p>
+<button onclick="coldAdd('#four')" class="w3-btn w3-black">Yes</button>
+<button onclick="allergyAdd('#four')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Question 4 -->
+<div id="four" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 4</h1></div>
+<div class="w3-container">
+<p>Are your symptoms seasonal or chronic?</p>
+<button onclick="allergyAdd('#five')" class="w3-btn w3-black">Yes</button>
+<button onclick="coldAdd('#five')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Question 5 -->
+<div id="five" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 5</h1></div>
+<div class="w3-container">
+<p>Is your mucus clear and watery?</p>
+<button onclick="allergyAdd('#six')" class="w3-btn w3-black">Yes</button>
+<button onclick="coldAdd('#six')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Question 6 -->
+<div id="six" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Question 6</h1></div>
+<div class="w3-container">
+<p>Are symptoms persistent throughout the day?</p>
+<button onclick="allergyAdd('#resultsPage')" class="w3-btn w3-black">Yes</button>
+<button onclick="coldAdd('#resultsPage')" class="w3-btn w3-black">No</button>
+</div>
+</div>
+
+<!-- Results Page -->
+<div id="resultsPage" class="page">
+<div class="w3-container w3-flat-carrot"><h1>Results</h1></div>
+<div class="w3-container">
+<p id="results"></p>
+<button onclick="showResults()" class="w3-btn w3-green">Show Results</button>
+</div>
+</div>
 
 </body>
 </html>
+
