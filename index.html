@@ -44,7 +44,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
-
+<!-- this will be the formatting of the app home page: -->
 <style>
 body { margin:0; }
 
@@ -62,7 +62,7 @@ body { margin:0; }
     left:0;
 }
 </style>
-
+<!-- This is the function of adding up the allergy or cold which will be calculated at the end, I used the code from the procedures page: -->
 <script>
 var allergy_count = 0;
 var cold_count = 0;
@@ -91,7 +91,7 @@ function showResults(){
 
 <body>
 
-<!-- Home Page -->
+<!-- This will be the home Page that users will see upon clicking on the website -->
 <div class="w3-container w3-flat-carrot">
 <h1>Cold or Allergies?</h1>
 </div>
@@ -101,7 +101,7 @@ function showResults(){
 <a href="#one" class="w3-btn w3-black w3-round">Get Started</a>
 </div>
 
-<!-- Question 1 -->
+<!-- Question 1: this is just from the base code, I just inserted the first given question  -->
 <div id="one" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 1</h1></div>
 <div class="w3-container">
@@ -111,7 +111,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Question 2 -->
+<!-- Question 2, for this I switched around yes and no by putting cold for yes and the other  -->
 <div id="two" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 2</h1></div>
 <div class="w3-container">
@@ -121,7 +121,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Question 3 -->
+<!-- Question 3, I just copied the code from the first question and changed the words for the actual question -->
 <div id="three" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 3</h1></div>
 <div class="w3-container">
@@ -131,7 +131,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Question 4 -->
+<!-- Question 4, here I just changed the page id and the question  -->
 <div id="four" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 4</h1></div>
 <div class="w3-container">
@@ -141,7 +141,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Question 5 -->
+<!-- Question 5, this is where I added one of my new questions, answering yes would add to the allergy probability, the format is the same  -->
 <div id="five" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 5</h1></div>
 <div class="w3-container">
@@ -151,7 +151,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Question 6 -->
+<!-- Question 6, this is where I added my new question for the cold symptom, so yes, would add to the cold probability -->
 <div id="six" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Question 6</h1></div>
 <div class="w3-container">
@@ -161,7 +161,7 @@ function showResults(){
 </div>
 </div>
 
-<!-- Results Page -->
+<!-- Results Page, this is where it will be able to calculate the results, which had the function written at the top of the code  -->
 <div id="resultsPage" class="page">
 <div class="w3-container w3-flat-carrot"><h1>Results</h1></div>
 <div class="w3-container">
