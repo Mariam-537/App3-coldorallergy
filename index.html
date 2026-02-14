@@ -34,7 +34,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
-
+ <script> // This is where the function is set up that counts allergy vs. cold based on the button that is pressed on each page//
 <script>
         var allergy_count = 0;
         var cold_count = 0;
@@ -50,7 +50,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             cold_count = cold_count + 1;
         }
 
-  </script>
+  </script> // This is where the formatting is written below: that makes the page look the desired way//
 
 
 
@@ -95,19 +95,28 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
-	
+ </script> // This is where I am going to insert my first question and the two buttons//	
     	<div id="content" class="w3-container">
-        <p>Put Question 1 content here.</p>    
-    	</div>
+        <p>Are your eyes watery or itchy?</p>    
+    <a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+> Go to Page Two </a>
+		</div>
 </div>
 
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
-	
+	 </script> // This is where I am going to insert my second question and the two buttons on the second page. I changed the code to switch from allergy to cold for yes and vice versa//	
 	<div id="content" class="w3-container">
 		<p>Content of page 2 goes here.</p>
+		<div id="content" class="w3-container">
+        <p>Do you have a fever?</p>    
+    <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
+         	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+> Go to Page Three </a>
+
 	</div>
 </div>	
 
