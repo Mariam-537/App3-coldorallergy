@@ -17,10 +17,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+The goal of the code is to be able to use different questions surrounding symptoms of allergies and the cold. When a user clicks a button, it will add to the probability that the code calculates at the end or the "results" page. This code is less about the diagnosis aspect and instead more about learning how to code all the functions and also keeping good notes about it. 
  
 Known Issues:
-blah, blah, blah, blah
+This code will not accurately be able to diagnose an individual with a cold or allergies. It asks very rudimentary questions and adds up probabilities, so this is not a reflection of real life at all. This code should not represent diagnosis at all and it just built ono various html and other coding functions. 
 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
@@ -28,8 +28,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
  <!-- This is the function that shows the title of the website, this is taken from the original index, I just changed the name of the title to Cold or Allergy  --> 	
    <head> 
-      <title>Cold or Allergy</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Cold or Allergy</title>  //this is the title 
+      <meta name="viewport" content="width=device-width, initial-scale=1"> //this shows the scale that the viewer will see 
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
@@ -40,13 +40,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <html>
 <!-- This will show the title page of the program, this is also taken from the original index, I did not change any of the code here   --> 	
 <head>
-<title>Cold or Allergies?</title>
+<title>Cold or Allergies?</title> //this is the title that the viewer will see on the first page 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 <!-- this will be the formatting of the app home page, this is taken from the procedures Google document/original index, this will tell the page what to look like, essentially describing details of width and height, this will be relevant for all of the pages: -->
 <style>
-body { margin:0; }
+body { margin:0; }  
 
 .page {
     width:100vw;
@@ -64,24 +64,24 @@ body { margin:0; }
 </style>
 <!-- This is the function of adding up the allergy or cold, which will be calculated at the end. I used the code from the procedures page, it will calculate the probability as users go through the app and click the different buttons per question: -->
 <script>
-var allergy_count = 0;
-var cold_count = 0;
+var allergy_count = 0; //this will be the allergy count
+var cold_count = 0; // this is the cold count 
 
 function allergyAdd(nextPage){
     allergy_count++;
     location.href = nextPage;
-}
+} //this is the function that adds up the allergy count 
 
 function coldAdd(nextPage){
     cold_count++;
     location.href = nextPage;
-}
+} //this is the function that adds up the cold count 
 
 function showResults(){
     var total = allergy_count + cold_count;
     var allergyPercent = Math.round((allergy_count/total)*100);
     var coldPercent = Math.round((cold_count/total)*100);
-
+//the function above is the function that uses the counts from the buttons to formulate a percentage that shows the viewer their likelihood of allergy or cold 
     document.getElementById("results").innerHTML =
         "Allergy likelihood: " + allergyPercent + "%<br>" +
         "Cold likelihood: " + coldPercent + "%";
@@ -97,53 +97,53 @@ function showResults(){
 </div>
 <!-- This part of the code will show users a "get started" button, which will take them to the next page upon clicking-->
 <div class="w3-container">
-<p>Answer a few short questions to find out!</p>
-<a href="#one" class="w3-btn w3-black w3-round">Get Started</a>
+<p>Answer a few short questions to find out!</p> //this is just text to show the users to click the button 
+<a href="#one" class="w3-btn w3-black w3-round">Get Started</a> //this is the function for the button to get started, taking them to the page with the first question 
 </div>
 
 <!-- Question 1: this is just from the base code, I just inserted the first given question by switching out the words  -->
-<div id="one" class="page">
+<div id="one" class="page"> //this indicates that its the first page 
 <div class="w3-container w3-flat-carrot">
-	<h1>Question 1</h1></div>
+	<h1>Question 1</h1></div> //this is header text saying that its the first question 
 <div class="w3-container">
-<p>Are your eyes watery or itchy?</p>
-<button onclick="allergyAdd('#two')" class="w3-btn w3-black">Yes</button>
-<button onclick="coldAdd('#two')" class="w3-btn w3-black">No</button>
+<p>Are your eyes watery or itchy?</p> //this is the question that shows up for the viewer
+<button onclick="allergyAdd('#two')" class="w3-btn w3-black">Yes</button> //this function adds probability for allergy if the user clicks yes
+<button onclick="coldAdd('#two')" class="w3-btn w3-black">No</button> //this is the no button that adds a count towards cold if pressed
 </div>
 </div>
 
 <!-- Question 2, for this I switched around yes and no by putting cold for yes and the other, and also added in my question based on the document, I changed the number for the probabilities so it can accurately add to the results -->
-<div id="two" class="page">
-<div class="w3-container w3-flat-carrot">
-	<h1>Question 2</h1></div>
+<div id="two" class="page"> //this tells the code that its the second page 
+<div class="w3-container w3-flat-carrot"> //this is the formatting for the page 
+	<h1>Question 2</h1></div> //this is the header in the orange part
 <div class="w3-container">
-<p>Do you have a fever?</p>
+<p>Do you have a fever?</p> //this is the question text that shows up for the viewer
 	<!-- the code for the question was taken from the original index, below I changed the coding for the buttons to be specific to the page and to align the result of the answers with what the question is asking about, in this case, it would be a cold symptom --> 
-<button onclick="coldAdd('#three')" class="w3-btn w3-black">Yes</button>
-<button onclick="allergyAdd('#three')" class="w3-btn w3-black">No</button>
+<button onclick="coldAdd('#three')" class="w3-btn w3-black">Yes</button> //if the user clicks yes this function adds to the cold count
+<button onclick="allergyAdd('#three')" class="w3-btn w3-black">No</button> //no button that if clicked adds to the allergy count 
 </div>
 </div>
 
 <!-- Question 3, I just copied the code from the first question and changed the words for the actual question. I continued by tweaking the page-specific areas of code, which I have done as well on the previous pages -->
-<div id="three" class="page">
-<div class="w3-container w3-flat-carrot">
-	<h1>Question 3</h1></div>
+<div id="three" class="page"> //this shows that its the third page now 
+<div class="w3-container w3-flat-carrot"> //formatting for the orange part at the top of the page 
+	<h1>Question 3</h1></div> //the header is in the orange box at the top of the page, this is the code that signifies the header
 <div class="w3-container">
 	<!-- the code below will show users the question written and then two buttons, if they click yes, it will add to the probability of a cold, as a  sore throat is persistent with cold symptoms, and then the function will move the users to the next page --> 
 <p>Do you have a sore throat?</p>
-<button onclick="coldAdd('#four')" class="w3-btn w3-black">Yes</button>
-<button onclick="allergyAdd('#four')" class="w3-btn w3-black">No</button>
+<button onclick="coldAdd('#four')" class="w3-btn w3-black">Yes</button> //this code makes clicking yes add to the cold count
+<button onclick="allergyAdd('#four')" class="w3-btn w3-black">No</button> //this function will add to the allergy count if no is clicked 
 </div>
 </div>
 
 <!-- Question 4, here I just changed the page id and the question, as I have done on the past pages. I also made sure to tweak what 'yes' and 'no' would be in terms of cold or allergy  -->
 <div id="four" class="page">
 <div class="w3-container w3-flat-carrot">
-	<h1>Question 4</h1></div>
+	<h1>Question 4</h1></div> //this is the actual text on the header of the page, this code above and below signifies formatting 
 <div class="w3-container">
-<p>Are your symptoms seasonal or chronic?</p>
+<p>Are your symptoms seasonal or chronic?</p> //this is the text (question) that appears on the page
 	<!-- the question above and two buttons will appear for the user, if they click yes, it will add to the probability of allergies -->
-<button onclick="allergyAdd('#five')" class="w3-btn w3-black">Yes</button>
+<button onclick="allergyAdd('#five')" class="w3-btn w3-black">Yes</button> 
 <button onclick="coldAdd('#five')" class="w3-btn w3-black">No</button>
 </div>
 </div>
@@ -151,36 +151,36 @@ function showResults(){
 <!-- Question 5, this is where I added one of my new questions, answering yes would add to the allergy probability, the format is the same, I just changed the page-specific coding so that it would add to the results correctly   -->
 <div id="five" class="page">
 <div class="w3-container w3-flat-carrot">
-	<h1>Question 5</h1></div>
+	<h1>Question 5</h1></div> //this is the same header as above, the format stays the same
 <div class="w3-container">
-<p>Is your mucus clear and watery?</p>
+<p>Is your mucus clear and watery?</p> //this is the new question that targets allergy symptoms, this is the text that shows up on the users' end 
 	<!-- the question above is consistent with allergy symptoms, so the code below will add probability to allergy if the user clicks yes --> 
-<button onclick="allergyAdd('#six')" class="w3-btn w3-black">Yes</button>
-<button onclick="coldAdd('#six')" class="w3-btn w3-black">No</button>
+<button onclick="allergyAdd('#six')" class="w3-btn w3-black">Yes</button> //this function makes it so that clicking yes adds to the allergy count
+<button onclick="coldAdd('#six')" class="w3-btn w3-black">No</button> //if the user clicks the no button made from this code, it will add to the cold count 
 </div>
 </div>
 
 <!-- Question 6, this is where I added my new question for the cold symptom, so yes, would add to the cold probability. I changed the code to be page specific and be able to correctly add to the end result. Other than that it is formatted the same as the other questions -->
-<div id="six" class="page">
+<div id="six" class="page"> //this is the code that signifies that it is the 6th page
 <div class="w3-container w3-flat-carrot">
 	<h1>Question 6</h1></div>
 <div class="w3-container">
 <p>Are symptoms persistent throughout the day?</p>
 	<!-- the code below will present the user with a yes or no button, if they click yes, it will add to the probability of a cold, and vice versa -->
-<button onclick="coldAdd('#resultsPage')" class="w3-btn w3-black">Yes</button>
-<button onclick="allergyAdd('#resultsPage')" class="w3-btn w3-black">No</button>
+<button onclick="coldAdd('#resultsPage')" class="w3-btn w3-black">Yes</button> //clicking yes adds to the count count
+<button onclick="allergyAdd('#resultsPage')" class="w3-btn w3-black">No</button> //this function makes a no button that adds to the allergy count when pressed
 </div>
 </div>
 
 <!-- Results Page, this is where it will be able to calculate the results, which had the function written at the top of the code. This code will show a big green button, which, upon pressing, will give the user the probability calculated by the questions  -->
-<div id="resultsPage" class="page">
+<div id="resultsPage" class="page"> //this tells the code that this is a page named results, aka the ID of the page is results
 <div class="w3-container w3-flat-carrot">
 	<!-- This h1 just signifies the text that will show up in the "Header 1" format -->
 	<h1>Results</h1></div>
 <div class="w3-container">
 <p id="results"></p>
 	<!-- This function below will show users their results once they click on the button -->
-<button onclick="showResults()" class="w3-btn w3-green">Show Results</button>
+<button onclick="showResults()" class="w3-btn w3-green">Show Results</button> 
 </div>
 </div>
 
